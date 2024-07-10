@@ -28,9 +28,9 @@ const Hero = () => {
     });
     gsap.to(".heroanim", {
       fontSize: window.innerWidth < 768 ? 40 : 120,
-      ease: "slow(0.7,0.7,false)",
+      ease: "power1.out",
       opacity: 1,
-      duration: 1,
+      duration: 0.5,
       delay: 3,
     });
   }, []);
