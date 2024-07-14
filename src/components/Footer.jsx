@@ -5,17 +5,18 @@ import {
   faXTwitter,
   faFacebook,
 } from "@fortawesome/free-brands-svg-icons";
+import { companyName } from "../constants";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-gray-300 w-full">
+    <footer className="bg-gray-800 text-gray-300 w-full font-Roboto">
       <div className="max-w-6xl mx-auto px-4 py-12">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start space-y-8 md:space-y-0 md:space-x-8">
           <div className="flex flex-col items-center md:items-start space-y-4">
-            <h1 className="font-extrabold text-3xl md:text-4xl text-white">
-              Factory Space
+            <h1 className="font-bold text-3xl md:text-4xl text-white">
+              {companyName}
             </h1>
-            <p className="font-semibold text-lg text-gray-400">Address</p>
+            <p className="font-medium text-lg text-gray-400">Address</p>
             <p className="font-light text-sm md:text-base text-center md:text-left">
               123, 1st Floor, 4th Cross, 5th Main, 6th Sector, <br /> HSR
               Layout, Bangalore

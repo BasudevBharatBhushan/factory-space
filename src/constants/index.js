@@ -10,6 +10,11 @@ import {
   psSeven,
 } from "../utils";
 
+export const navLists = ["Home", "Join us!"];
+
+export const companyName = "Factory Space AI";
+export const companyTagline = "Empowering the future of manufacturing";
+
 export const clients = [
   {
     name: "Airtel",

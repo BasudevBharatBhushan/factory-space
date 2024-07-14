@@ -6,19 +6,22 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import ProblemStatement from "./components/ProblemStatement";
 import Solution from "./components/Solution";
+import { wpLogo } from "./utils";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <Hero />
-      <Brief />
-      <ProblemStatement />
-      <Solution />
-      {/* <Client /> */}
+
       <Footer />
+      <img
+        className="fixed bottom-4 right-4 text-yellow-500 animate-bounce w-20"
+        src={wpLogo}
+        alt="wp floating icon"
+      />
     </>
   );
 }
