@@ -3,10 +3,12 @@ import { navLists } from "../constants";
 
 const Header = () => {
   return (
-    <header className="w-full py-4 px-5 sm:px-10 flex justify-between items-center font-Roboto text-gray-400 bg-gray-100">
-      <nav className="flex w-full screen-max-width justify-between">
+    <header className="w-full py-4 px-5 sm:px-9  text-gray-400 bg-gray-100 font-Raleway">
+      <nav className="flex w-full  justify-between">
         <div>
-          <h1 className=" font-medium">Factory Space AI</h1>
+          <h1 className=" font-normal font-Raleway text-gray-400 text-2xl">
+            Factory Space AI
+          </h1>
         </div>
         <div className="flex  justify-center max-sm:hidden">
           {navLists.map((nav) => (
