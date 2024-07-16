@@ -48,6 +48,8 @@ const Hero = () => {
   const { showConnectModal, setShowConnectModal, handleButtonClick } =
     useContext(ModalContext);
 
+  const [videoClicked, setVideoClicked] = useState(false);
+
   const companyname = companyName.split(" ");
   const modalRef = useRef(null);
 
@@ -83,6 +85,23 @@ const Hero = () => {
     }
   };
 
+  const YoutubeEmbed = () => (
+    <div className=" w-[85vw] xl:w-[38vw] rounded-3xl">
+      <iframe
+        // width= 100%,
+        // height="315"
+        style={{ width: "100%", aspectRatio: "16 / 9" }}
+        className="rounded-3xl"
+        src="https://www.youtube.com/embed/cvBaj0gTQl8?si=Uvm8kQdRMFhE5RJ9&autoplay=1"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </div>
+  );
+
   return (
     <section className="w-full nav-height bg-gray-100">
       <div
@@ -110,21 +129,25 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className=" intro-video  drop-shadow-xl row-span-2 xl:row-span-1 ">
-          <div className="relative">
-            <img
-              className="video-thumbnail w-[85vw] xl:w-[38vw] rounded-3xl "
-              src={Thumbnail1}
-              alt=""
-            />
-            <FontAwesomeIcon
-              className="play-icon cursor-pointer absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-              size="4x"
-              icon={faCirclePlay}
-              color="white"
-            />
+        {videoClicked ? (
+          <YoutubeEmbed />
+        ) : (
+          <div className=" intro-video  drop-shadow-xl row-span-2 xl:row-span-1 ">
+            <div className="relative" onClick={() => setVideoClicked(true)}>
+              <img
+                className="video-thumbnail w-[85vw] xl:w-[38vw] rounded-3xl "
+                src={Thumbnail1}
+                alt=""
+              />
+              <FontAwesomeIcon
+                className="play-icon cursor-pointer absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                size="4x"
+                icon={faCirclePlay}
+                color="white"
+              />
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       {showConnectModal && (

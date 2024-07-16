@@ -26,7 +26,9 @@ const Footer = () => {
               {companyName}
             </h1>
             <div className="font-Roboto">
-              <p className="font-normal text-sm text-gray-400">Address</p>
+              <p className="font-normal text-sm text-gray-400 text-center sm:text-left">
+                Address
+              </p>
               <p className=" font-llght text-xs text-center md:text-left text-gray-300">
                 123, 1st Floor, 4th Cross, 5th Main, 6th Sector, <br /> HSR
                 Layout, Bangalore
