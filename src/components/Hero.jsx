@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import {} from "gsap/all";
@@ -10,6 +10,7 @@ import {
   faUser,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
+import { ModalContext } from "../context/ModalContext";
 import { companyName, companyTagline } from "../constants";
 
 const Hero = () => {
@@ -44,34 +45,49 @@ const Hero = () => {
     });
   }, []);
 
+  const { showConnectModal, setShowConnectModal, handleButtonClick } =
+    useContext(ModalContext);
+
   const companyname = companyName.split(" ");
-  const [showModal, setShowModal] = useState(false);
   const modalRef = useRef(null);
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
-        setShowModal(false);
+        setShowConnectModal(false);
       }
     };
 
-    if (showModal) {
+    if (showConnectModal) {
       document.addEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [showModal]);
+  }, [showConnectModal]);
 
-  const handleButtonClick = () => {
-    setShowModal(!showModal);
+  const redirectToForm = (designation) => {
+    if (designation === "Manufacturer") {
+      setShowConnectModal(false);
+      window.open(
+        "https://docs.google.com/forms/d/1XNfBLlGWpefx6qtpxDP8MhkKi3izf5fN5wVbtrBYiUE/viewform?edit_requested=true",
+        "_blank"
+      );
+    } else {
+      setShowConnectModal(false);
+      window.open(
+        "https://docs.google.com/forms/d/1aQblb-4cxttXKdypYIF09-hgY2V0tVrwWF3YKK5sLFM/edit",
+        "_blank"
+      );
+    }
   };
 
   return (
     <section className="w-full nav-height bg-gray-100">
       <div
         className={`z-10 w-full h-full text-black font-Raleway grid grid-rows-3 xl:grid-rows-none xl:grid-cols-2 xl:content-start justify-items-center xl:items-start xl:pt-20 ${
-          showModal ? "blur-lg" : ""
+          showConnectModal ? "blur-lg" : ""
         }`}
       >
         <div className=" flex flex-col justify-center xl:justify-evenly items-center xl:items-start  xl:my-2">
@@ -111,7 +127,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {showModal && (
+      {showConnectModal && (
         <div
           ref={modalRef}
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
@@ -132,6 +148,7 @@ const Hero = () => {
                 className="cursor-pointer mx-10"
                 size="4x"
                 icon={faUser}
+                onClick={() => redirectToForm("Manufacturer")}
               />
               <p className="font-semibold">Manufacturer</p>
             </div>
@@ -144,6 +161,7 @@ const Hero = () => {
                 className="cursor-pointer mx-10"
                 size="4x"
                 icon={faUser}
+                onClick={() => redirectToForm("Trader")}
               />
               <p className="font-semibold">Trader</p>
             </div>

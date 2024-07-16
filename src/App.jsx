@@ -1,15 +1,19 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Hero from "./components/Hero";
 
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ModalContext } from "./context/ModalContext";
 
 import { Gear, wpLogo } from "./utils";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const { showConnectModal } = useContext(ModalContext);
+  const redirectToWhatsApp = () => {
+    window.open("https://wa.me/919916587952", "_blank");
+  };
 
   useGSAP(() => {
     gsap.from(
@@ -38,7 +42,9 @@ function App() {
   return (
     <>
       <img
-        className="gear-icon w-40 sm:w-72 absolute opacity-5 top-16 left-4 lg:top-16 lg:left-16 xl:top-10 xl:left-20"
+        className={`gear-icon w-40 sm:w-72 absolute opacity-5 top-16 left-4 lg:top-16 lg:left-16 xl:top-10 xl:left-20 ${
+          showConnectModal ? "blur-lg" : ""
+        } `}
         src={Gear}
         alt=""
       />
@@ -47,9 +53,10 @@ function App() {
 
       <Footer />
       <img
-        className="fixed bottom-4 right-4 text-yellow-500 animate-bounce w-20"
+        className="fixed bottom-4 right-4 text-yellow-500 animate-bounce w-20 cursor-pointer"
         src={wpLogo}
         alt="wp floating icon"
+        onClick={redirectToWhatsApp}
       />
     </>
   );
