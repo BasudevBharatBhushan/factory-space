@@ -41,13 +41,13 @@ function App() {
 
   return (
     <>
-      <img
+      {/* <img
         className={`gear-icon w-40 sm:w-72 absolute opacity-5 top-16 left-4 lg:top-16 lg:left-16 xl:top-10 xl:left-20 ${
           showConnectModal ? "blur-lg" : ""
         } `}
         src={Gear}
         alt=""
-      />
+      /> */}
       <Header />
       <Hero />
 

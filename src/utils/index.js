@@ -21,6 +21,7 @@ import gear from "../assets/Background/gear.png";
 import thumbnail1 from "../assets/Thumbnail/Thumbnail1.jpg";
 
 import HeroVideo1 from "../assets/Videos/Hero1.mp4";
+import HeroVideo2 from "../assets/Videos/Hero2.mp4";
 // import HeroVideo2 from "../assets/Videos/Hero2.mp4";
 // import HeroVideo3 from "../assets/Videos/Hero3.mp4";
 
@@ -41,7 +42,7 @@ export const psFive = ps5;
 export const psSeven = ps7;
 
 export const heroVideo1 = HeroVideo1;
-// export const heroVideo2 = HeroVideo2;
+export const heroVideo2 = HeroVideo2;
 // export const heroVideo3 = HeroVideo3;
 
 export const factoryBg = factorybg;

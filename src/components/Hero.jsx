@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useContext } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import {} from "gsap/all";
-import { Thumbnail1 } from "../utils";
+import { Thumbnail1, heroVideo2 } from "../utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCirclePlay,
@@ -104,50 +104,61 @@ const Hero = () => {
 
   return (
     <section className="w-full nav-height bg-gray-100">
-      <div
-        className={`z-10 w-full h-full text-black font-Raleway grid grid-rows-3 xl:grid-rows-none xl:grid-cols-2 xl:content-start justify-items-center xl:items-start xl:pt-20 ${
-          showConnectModal ? "blur-lg" : ""
-        }`}
-      >
-        <div className=" flex flex-col justify-center xl:justify-evenly items-center xl:items-start  xl:my-2">
-          <div className="company-info font-semibold text-3xl lg:text-7xl xl:text-6xl my-4 text-center xl:text-left">
-            <p className="hero-anim">{companyName}</p>
-            <p className="hero-anim text-base lg:text-xl xl:text-lg  font-normal text-gray-400 my-4 text-center xl:text-left">
-              {companyTagline}
-            </p>
-          </div>
+      <div className="relative">
+        <video
+          className="pointer-events-none w-full h-full object-cover  left-0 top-0"
+          autoPlay
+          muted
+          playsInline={true}
+          key={heroVideo2}
+        >
+          <source src={heroVideo2} />
+        </video>
+        {/* <div
+          className={`z-10 w-full h-full text-black font-Raleway grid grid-rows-3 xl:grid-rows-none xl:grid-cols-2 xl:content-start justify-items-center xl:items-start xl:pt-20 ${
+            showConnectModal ? "blur-lg" : ""
+          }`}
+        >
+          <div className=" flex flex-col justify-center xl:justify-evenly items-center xl:items-start  xl:my-2">
+            <div className="company-info font-semibold text-3xl lg:text-7xl xl:text-6xl my-4 text-center xl:text-left">
+              <p className="hero-anim">{companyName}</p>
+              <p className="hero-anim text-base lg:text-xl xl:text-lg  font-normal text-gray-400 my-4 text-center xl:text-left">
+                {companyTagline}
+              </p>
+            </div>
 
-          <div className="  action-btns transition duration-500  hover:scale-110 ">
-            <a
-              href="#"
-              className="hero-anim inline-flex items-center px-6 py-4 bg-gradient-to-r from-yellow-400 to-yellow-200   text-white hover:from-yellow-500 hover:via-yellow-400 hover:to-yellow-300 font-semibold rounded-full  transition-colors  duration-300 "
-              onClick={handleButtonClick}
-            >
-              Join the Waitlist
-              <span className="ml-2 ">→</span>
-            </a>
-          </div>
-        </div>
-
-        {videoClicked ? (
-          <YoutubeEmbed />
-        ) : (
-          <div className=" intro-video  drop-shadow-xl row-span-2 xl:row-span-1 ">
-            <div className="relative" onClick={() => setVideoClicked(true)}>
-              <img
-                className="video-thumbnail w-[85vw] xl:w-[38vw] rounded-3xl "
-                src={Thumbnail1}
-                alt=""
-              />
-              <FontAwesomeIcon
-                className="play-icon cursor-pointer absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                size="4x"
-                icon={faCirclePlay}
-                color="white"
-              />
+            <div className="  action-btns transition duration-500  hover:scale-110 ">
+              <a
+                href="#"
+                className="hero-anim inline-flex items-center px-6 py-4 bg-gradient-to-r from-yellow-400 to-yellow-200   text-white hover:from-yellow-500 hover:via-yellow-400 hover:to-yellow-300 font-semibold rounded-full  transition-colors  duration-300 "
+                onClick={handleButtonClick}
+              >
+                Join the Waitlist
+                <span className="ml-2 ">→</span>
+              </a>
             </div>
           </div>
-        )}
+
+          {videoClicked ? (
+            <YoutubeEmbed />
+          ) : (
+            <div className=" intro-video  drop-shadow-xl row-span-2 xl:row-span-1 ">
+              <div className="relative" onClick={() => setVideoClicked(true)}>
+                <img
+                  className="video-thumbnail w-[85vw] xl:w-[38vw] rounded-3xl "
+                  src={Thumbnail1}
+                  alt=""
+                />
+                <FontAwesomeIcon
+                  className="play-icon cursor-pointer absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                  size="4x"
+                  icon={faCirclePlay}
+                  color="white"
+                />
+              </div>
+            </div>
+          )}
+        </div> */}
       </div>
 
       {showConnectModal && (
