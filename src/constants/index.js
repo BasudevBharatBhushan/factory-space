@@ -13,7 +13,8 @@ import {
 export const navLists = ["Home", "Connect"];
 
 export const companyName = "Factory Space AI";
-export const companyTagline = "Empowering the future of manufacturing";
+export const companyTagline =
+  "Revolutionizing the Future of Manufacturing with Innovation and Technology";
 
 export const clients = [
   {
