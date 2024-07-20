@@ -27,6 +27,18 @@ const Hero = () => {
     });
   }, []);
 
+  useGSAP(() => {
+    gsap.from(".hero-anim", {
+      ease: "slow(0.7,0.7,false)",
+      opacity: 0,
+      y: 40,
+      x: 40,
+      duration: 1,
+      delay: 0.5,
+      stagger: 0.2,
+    });
+  }, []);
+
   const { showConnectModal, setShowConnectModal, handleButtonClick } =
     useContext(ModalContext);
 
