@@ -18,8 +18,8 @@ const Footer = () => {
 
   const { handleButtonClick } = useContext(ModalContext);
   return (
-    <footer className="bg-gray-800 text-gray-300 w-full font-Raleway">
-      <div className="max-w-6xl mx-auto px-4 py-12">
+    <footer className="bg-gray-800 text-gray-300 w-full  font-Raleway z-40 ">
+      <div className=" xl:w-[80vw] mx-auto px-[5vw] py-12 ">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start space-y-8 md:space-y-0 md:space-x-8">
           <div className="flex flex-col items-center md:items-start space-y-4">
             <h1 className="font-semibold text-3xl md:text-4xl text-white">
@@ -42,7 +42,7 @@ const Footer = () => {
             </button>
           </div>
           <div className="flex flex-col items-center md:items-end space-y-4">
-            <h2 className="font-semibold text-2xl text-white">
+            <h2 className="font-semibold text-lg xl:text-2xl text-white">
               Reach out to us
             </h2>
             <div className="flex space-x-4">

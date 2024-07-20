@@ -39,7 +39,7 @@ function App() {
   }, []);
 
   return (
-    <div className="">
+    <div className=" h-[100vh]   relative">
       <Hero />
 
       <Footer />
