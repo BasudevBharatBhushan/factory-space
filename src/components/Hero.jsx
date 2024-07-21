@@ -110,6 +110,11 @@ const Hero = () => {
     </div>
   );
 
+  const handleConnect = () => {
+    // window.location.href = "https://run.ply.io/run/7Kj5bxPd??";
+    window.open("https://run.ply.io/run/7Kj5bxPd??", "_blank");
+  };
+
   return (
     <>
       <section className="relative  w-full   h-[70vh] lg:h-[80vh] xl:h-[85vh] text-white font-Raleway flex justify-center items-start ">
@@ -172,7 +177,8 @@ const Hero = () => {
               <a
                 href="#"
                 className=" hero-anim w-full xl:w-auto text-center xl:text-left  inline-flex items-center px-6 py-4 bg-white hover:bg-transparent border border-white text-black hover:text-white font-semibold rounded-full  transition-colors  duration-300 "
-                onClick={handleButtonClick}
+                // onClick={handleButtonClick}
+                onClick={handleConnect}
               >
                 <p className=" w-full xl:w-auto">
                   Join the Waitlist

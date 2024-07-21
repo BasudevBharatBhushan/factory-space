@@ -6,7 +6,9 @@ export const ModalProvider = ({ children }) => {
   const [showConnectModal, setShowConnectModal] = useState(false);
 
   const handleButtonClick = () => {
-    setShowConnectModal(!showConnectModal);
+    // setShowConnectModal(!showConnectModal);
+    // window.location.href = "https://run.ply.io/run/7Kj5bxPd??";
+    window.open("https://run.ply.io/run/7Kj5bxPd??", "_blank");
   };
 
   return (
