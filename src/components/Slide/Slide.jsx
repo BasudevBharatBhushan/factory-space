@@ -6,33 +6,20 @@ import SlideFooterButton from "./SlideFooterButton";
 
 const Slide = ({
   Header = "Factory Space AI",
-  Questions,
-  SlideNo,
-  TotalSlide,
+  slideQuestions,
+  slideNo,
+  totalSlide,
   isLastSlide,
 }) => {
-  const slideQuestions = [
-    {
-      id: 1,
-      question: "Let's get started. Which of these best describe you?",
-      description: "We'll help you set up based on your business needs.",
-      type: "feedback",
-      options: ["Manufacturer", "Trader", "Customer", "Other"],
-    },
-  ];
-
   return (
-    <div>
-      {" "}
-      <div className="relative w-full h-full xl:w-[50vw] xl:h-[80vh] px-[2vw] py-[4vh] bg-white rounded-xl ">
-        <SlideHeader Header={Header} />
+    <div className="relative  w-full h-full xl:w-[60vw] xl:h-auto xl:min-h-[80vh] px-[2vw] py-[6vh] bg-white rounded-none xl:rounded-xl overflow-y-visible overflow-x-visible">
+      <SlideHeader Header={Header} />
 
-        <ProgressBar targetProgress={50} />
+      <ProgressBar targetProgress={(slideNo / totalSlide) * 100} />
 
-        <SlideQuestioner slideQuestions={slideQuestions} />
+      <SlideQuestioner slideQuestions={slideQuestions} />
 
-        <SlideFooterButton isLastSlide={isLastSlide} SlideNo={SlideNo} />
-      </div>
+      <SlideFooterButton isLastSlide={isLastSlide} slideNo={slideNo} />
     </div>
   );
 };
