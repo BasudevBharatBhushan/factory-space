@@ -18,7 +18,7 @@ const SlideQuestioner = ({ slideQuestions }) => {
           /* console.log(obj.id); */
         }
         return (
-          <div className="slide-questioner mb-1 " key={index}>
+          <div className="slide-questioner mb-1 w-full " key={index}>
             <p className=" text-lg text-gray-600 font-bold">{obj.question}</p>
             <p className="text-xs font-extralight text-gray-400">
               {obj.description}
