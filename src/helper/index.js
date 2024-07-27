@@ -146,4 +146,99 @@ const patchData = async (data) => {
   }
 };
 
-export { refreshIDToken, postData, patchData };
+// Function to get data
+const getData = async (designation) => {
+  try {
+    const jsonPayload = {
+      structuredQuery: {
+        from: [
+          {
+            collectionId: "factory-space-ai-user",
+          },
+        ],
+        where: {
+          fieldFilter: {
+            field: {
+              fieldPath: "designation",
+            },
+            op: "EQUAL",
+            value: {
+              stringValue: designation,
+            },
+          },
+        },
+      },
+    };
+
+    const fetchData = async (token) => {
+      const response = await fetch(
+        `${BASE_URL}/projects/${PROJECT_ID}/databases/(default)/documents:runQuery`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(jsonPayload),
+        }
+      );
+
+      if (response.status === 401) {
+        throw new Error("Token expired");
+      }
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+      }
+
+      return response.json();
+    };
+
+    let idToken = await getIDTokenFromLocalStorage();
+
+    try {
+      if (!idToken) {
+        throw new Error("No token found");
+      }
+      const data = await fetchData(idToken);
+      return formatResponse(data);
+    } catch (error) {
+      if (
+        error.message === "Token expired" ||
+        error.message === "No token found"
+      ) {
+        idToken = await refreshIDToken();
+        const data = await fetchData(idToken);
+        return formatResponse(data);
+      } else {
+        console.error("Failed to get data:", error);
+        return [];
+      }
+    }
+  } catch (error) {
+    console.error("Failed to get data:", error);
+    return [];
+  }
+};
+
+const formatResponse = (data) => {
+  if (!Array.isArray(data) || data.length === 0) {
+    return [];
+  }
+
+  return data
+    .map((item) => {
+      const fields = item.document?.fields;
+      if (fields) {
+        const formattedItem = {};
+        for (const key in fields) {
+          formattedItem[key] = fields[key].stringValue || "";
+        }
+        return formattedItem;
+      }
+      return null;
+    })
+    .filter((item) => item !== null);
+};
+
+export { refreshIDToken, postData, patchData, getData };
