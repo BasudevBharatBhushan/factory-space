@@ -10,7 +10,7 @@ const SlideQuestioner = ({ slideQuestions }) => {
     updateQuestionsResponse,
     questionsResponse,
   } = useContext(ConnectContext);
-  console.log(questionsResponse);
+  // console.log(questionsResponse);
   return (
     <>
       {slideQuestions.map((obj, index) => {
@@ -39,6 +39,7 @@ const SlideQuestioner = ({ slideQuestions }) => {
                         updateQuestionsResponse({
                           id: obj.id,
                           response: option,
+                          fieldName: obj.fieldName,
                         })
                       }
                     >
@@ -60,12 +61,15 @@ const SlideQuestioner = ({ slideQuestions }) => {
             {obj.type === "input" && (
               <div className="slide-question-input p-3">
                 <textarea
-                  className="border w-full rounded-md h-10 px-3 py-2 text-sm overflow-hidden focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className={`border w-full rounded-md px-3 py-2 text-sm overflow-hidden focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
+                    obj.inputSize == "large" ? "h-20" : "h-10"
+                  }`}
                   type="text"
                   onChange={(e) =>
                     updateQuestionsResponse({
                       id: obj.id,
                       response: e.target.value,
+                      fieldName: obj.fieldName,
                     })
                   }
                   value={(() => {
@@ -93,6 +97,20 @@ const SlideQuestioner = ({ slideQuestions }) => {
                   rows="4"
                   className="w-full p-3 mt-1 border border-gray-300 rounded-md shadow-sm text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   placeholder={obj.description}
+                  onChange={(e) =>
+                    updateQuestionsResponse({
+                      id: obj.id,
+                      response: e.target.value,
+                      fieldName: obj.fieldName,
+                    })
+                  }
+                  value={(() => {
+                    const question = questionsResponse.find(
+                      (question) => question.id === obj.id
+                    );
+
+                    return question?.response || ""; // Ensure a default empty value if undefined
+                  })()}
                 />
               </div>
             )}

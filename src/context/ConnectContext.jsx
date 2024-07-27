@@ -1,4 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
+import { postData, patchData } from "../helper";
+import { useNavigate } from "react-router-dom";
 
 export const ConnectContext = React.createContext();
 
@@ -10,6 +12,12 @@ export const ConnectProvider = ({ children }) => {
 
   const handleNextSlide = () => {
     setActiveSlide(activeSlide + 1);
+    saveUserData();
+  };
+
+  const handleDoneButton = () => {
+    saveUserData();
+    setActiveSlide(100);
   };
 
   const handleBackSlide = () => {
@@ -44,6 +52,79 @@ export const ConnectProvider = ({ children }) => {
     }
   };
 
+  const saveUserData = async () => {
+    try {
+      /*
+        Format for the questionsResponse array
+
+        questionsResponse = [
+        
+        {
+        
+        id: 1,
+        response: "Manufacturer",
+        fieldName: "userType"
+        
+        },
+        
+        {
+        id : 2,
+        response: "Yes",
+        fieldName: "isRegistered"
+        
+        }
+        
+        
+        ]
+
+
+        I have to save data to Firebase in the format
+
+        {
+        
+        fieldName: {
+            "stringValue": response
+        }
+        
+        
+        }
+
+
+          */
+
+      const data = {};
+
+      if (questionsResponse.length === 0) {
+        return;
+      }
+
+      questionsResponse.forEach((question) => {
+        data[question.fieldName] = {
+          stringValue: question.response,
+        };
+      });
+
+      // Save the data to Firebase
+
+      /// Check if documentID is available in the localstorage
+      const documentID = localStorage.getItem("documentId");
+      let responseData = null;
+
+      // Check if documentID
+      if (documentID) {
+        // If documentID is available, update the data
+        responseData = await patchData(data);
+      } else {
+        // If documentID is not available, post the data
+        responseData = await postData(data);
+      }
+
+      console.log(responseData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     //Delete all the Question respones except the id = 1
     setQuestionsResponse(
@@ -63,6 +144,8 @@ export const ConnectProvider = ({ children }) => {
         updateQuestionsResponse,
         questionsResponse,
         setQuestionsResponse,
+        saveUserData,
+        handleDoneButton,
       }}
     >
       {children}

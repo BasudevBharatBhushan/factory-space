@@ -143,28 +143,32 @@ export const ManufacturerSlides = [
     Questioner: [
       {
         id: 1,
-        question: "Let's get started. Which of these best describe you?",
-        description: "We'll help you set up based on your business needs.",
+        question: "Which of these best describe you?",
+        description: "Help us tailor the setup for your business.",
         type: "mcq",
         options: ["Manufacturer", "Trader"],
+        fieldName: "designation",
       },
       {
         id: 2,
-        question: "Company Name",
-        description: "Please enter your company's official registered name.",
+        question: "What is your company's name?",
+        description: "Provide your registered company name.",
         type: "input",
+        fieldName: "companyName",
       },
       {
         id: 3,
-        question: "Email",
-        description: "Provide a valid email address for communication.",
+        question: "What is your business email?",
+        description: "Provide a valid business email.",
         type: "input",
+        fieldName: "businessEmail",
       },
       {
         id: 4,
-        question: "Industry",
-        description: "Specify the primary industry your company operates in.",
+        question: "Which industry does your company operate in?",
+        description: "Specify your primary industry.",
         type: "input",
+        fieldName: "industrySector",
       },
     ],
   },
@@ -173,21 +177,23 @@ export const ManufacturerSlides = [
     Questioner: [
       {
         id: 5,
-        question: "What types of machines do you currently own?",
-        description: "List the main types of machinery in your inventory.",
+        question: "What types of machines do you own?",
+        description: "List your main machinery.",
         type: "input",
+        inputSize: "large",
+        fieldName: "ownedMachines",
       },
       {
         id: 6,
-        question: "What is the current utilisation rate of these machines?",
-        description:
-          "Select the option that best represents your machine usage.",
+        question: "What is the utilization rate of these machines?",
+        description: "Select your machine usage.",
         type: "mcq",
         options: [
           "Fully utilized (80-100%)",
           "Partially utilized (50-79%)",
           "Underutilized (below 50%)",
         ],
+        fieldName: "machineUtilizationRate",
       },
     ],
   },
@@ -196,8 +202,8 @@ export const ManufacturerSlides = [
     Questioner: [
       {
         id: 7,
-        question: "What type of leasing arrangement would you prefer?",
-        description: "Choose the leasing model that suits your business needs.",
+        question: "What leasing arrangement do you prefer?",
+        description: "Choose your preferred leasing model.",
         type: "mcq",
         options: [
           "Short-term leases",
@@ -205,15 +211,15 @@ export const ManufacturerSlides = [
           "On-demand leasing",
           "Other",
         ],
+        fieldName: "leasingPreference",
       },
       {
         id: 8,
-        question:
-          "What pricing model would you find most appealing for leasing out your machines?",
-        description:
-          "Select the pricing structure you prefer for machine leasing.",
+        question: "Which pricing model do you prefer for leasing out machines?",
+        description: "Select your preferred pricing structure.",
         type: "mcq",
         options: ["Fixed fee", "Revenue share", "Pay-per-use", "Other"],
+        fieldName: "preferredPricingModel",
       },
     ],
   },
@@ -222,10 +228,10 @@ export const ManufacturerSlides = [
     Questioner: [
       {
         id: 9,
-        question: "Any additional feedback",
-        description:
-          "Please share any other thoughts, suggestions, or concerns you may have.",
+        question: "Any additional feedback?",
+        description: "Share your thoughts or concerns.",
         type: "feedback",
+        fieldName: "additionalFeedback",
       },
     ],
   },
@@ -237,33 +243,32 @@ export const TraderSlides = [
     Questioner: [
       {
         id: 1,
-        question:
-          "Let's get started. Which category best describes your business?",
-        description:
-          "We'll tailor our services based on your specific business needs.",
+        question: "Which of these best describe you?",
+        description: "Help us tailor the setup for your business.",
         type: "mcq",
         options: ["Manufacturer", "Trader"],
+        fieldName: "designation",
       },
       {
         id: 2,
-        question: "What is your company's legal name?",
-        description:
-          "Please provide the officially registered name of your company.",
+        question: "What is your company's name?",
+        description: "Provide your registered company name.",
         type: "input",
+        fieldName: "companyName",
       },
       {
         id: 3,
-        question: "What is your business email address?",
-        description:
-          "Enter a valid email address for all business communications.",
+        question: "What is your business email?",
+        description: "Provide a valid business email.",
         type: "input",
+        fieldName: "businessEmail",
       },
       {
         id: 4,
-        question: "In which industry does your company primarily operate?",
-        description:
-          "Specify the main industry sector of your business activities.",
+        question: "Which industry does your company operate in?",
+        description: "Specify your primary industry.",
         type: "input",
+        fieldName: "industrySector",
       },
     ],
   },
@@ -272,26 +277,25 @@ export const TraderSlides = [
     Questioner: [
       {
         id: 5,
-        question: "What types of products do you intend to manufacture?",
-        description:
-          "Please provide details about the primary products you plan to produce.",
+        question: "What products do you plan to manufacture?",
+        description: "Details about your primary products.",
         type: "input",
+        fieldName: "productsToManufacture",
       },
       {
         id: 6,
-        question:
-          "Which specific machines are essential for your manufacturing process?",
-        description:
-          "List the key types of machinery required for your production line.",
+        question: "Which machines are essential for manufacturing?",
+        description: "Key machinery for your production line.",
         type: "input",
+        fieldName: "essentialMachines",
       },
       {
         id: 7,
-        question: "How frequently do you expect to utilize these machines?",
-        description:
-          "Select the option that best represents your anticipated usage pattern.",
+        question: "How often will you use these machines?",
+        description: "Your expected usage pattern.",
         type: "mcq",
         options: ["Daily", "Weekly", "Monthly", "On-demand"],
+        fieldName: "machineUsageFrequency",
       },
     ],
   },
@@ -300,27 +304,25 @@ export const TraderSlides = [
     Questioner: [
       {
         id: 8,
-        question:
-          "Which pricing model aligns best with your business strategy?",
-        description:
-          "Choose the pricing structure that you find most suitable for your operations.",
+        question: "Which pricing model suits your strategy?",
+        description: "Choose a suitable pricing structure.",
         type: "mcq",
         options: ["Subscription-based", "Pay-per-use", "Revenue-sharing"],
+        fieldName: "pricingModel",
       },
       {
         id: 9,
-        question:
-          "Which additional services would add value to your operations?",
-        description:
-          "Select all applicable services that would enhance your manufacturing process.",
+        question: "Which services add value to your operations?",
+        description: "Select applicable services.",
         type: "mcq",
         options: [
-          "Technical support and troubleshooting",
-          "Comprehensive machine operation training",
-          "Logistics and transportation management",
-          "Quality control and assurance protocols",
-          "Regular maintenance and servicing",
+          "Technical support",
+          "Machine operation training",
+          "Logistics management",
+          "Quality control",
+          "Maintenance and servicing",
         ],
+        fieldName: "valueAddedServices",
       },
     ],
   },
@@ -329,11 +331,21 @@ export const TraderSlides = [
     Questioner: [
       {
         id: 10,
-        question: "Any additional feedback",
-        description:
-          "Please share any other thoughts, suggestions, or concerns you may have.",
+        question: "Any additional feedback?",
+        description: "Share your thoughts or concerns.",
         type: "feedback",
+        fieldName: "additionalFeedback",
       },
     ],
   },
 ];
+
+// Firebase Creds
+export const firebaseCreds = {
+  API_KEY: "AIzaSyC5EUGSPjg0-1-MxzjV99em_-7VIdHLI4w",
+  PROJECT_ID: "factory-space-9270a",
+  BASE_URL: "https://firestore.googleapis.com/v1",
+  REFRESH_TOKEN:
+    "AMf-vBxeSoGMwZ0vWErJ92yFVdnluwzwqDgKrCdpimXeSxELZBu6E3tTtxevJRII56ydGGayqxdexitfWjlegruS791NWjgMZ631OZTsV67toQPyp3Cem3gpAydjmSSWdns3fMY6EvejSPvGtY6MhAKcoPJwLHwHT4hZlQaxmLZvG0QmARVaVlES0mpwzaH7Ozk2zGTjU-8X4wmu5LO70GCwGHsbumGtpU3ctIZU9u9APLKIzG0YxMY",
+  JWT_SECRET: "dsafldsjoaidfuoisdf",
+};

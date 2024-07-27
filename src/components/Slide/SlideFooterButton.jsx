@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import { ConnectContext } from "../../context/ConnectContext";
 
 const SlideFooterButton = ({ isLastSlide, slideNo }) => {
-  const { handleNextSlide, handleBackSlide } = useContext(ConnectContext);
+  const { handleNextSlide, handleBackSlide, handleDoneButton } =
+    useContext(ConnectContext);
   return (
     <div className="slide-footer  pb-2 lg:pb-0 pt-2 px-2 w-full  flex flex-row justify-between items-baseline">
       {slideNo > 1 ? (
@@ -47,7 +48,10 @@ const SlideFooterButton = ({ isLastSlide, slideNo }) => {
           Next
         </button>
       ) : (
-        <button className="  bg-gray-700 rounded-md  px-3 py-1 text-gray-100 hover:bg-gray-800 hover:text-gray-200  transition ease-in-out duration-100 shadow-sm">
+        <button
+          className="  bg-gray-700 rounded-md  px-3 py-1 text-gray-100 hover:bg-gray-800 hover:text-gray-200  transition ease-in-out duration-100 shadow-sm"
+          onClick={handleDoneButton}
+        >
           Done
         </button>
       )}

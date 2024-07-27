@@ -12,11 +12,14 @@ import {
   faPlay,
 } from "@fortawesome/free-solid-svg-icons";
 import { ModalContext } from "../context/ModalContext";
+import { ConnectContext } from "../context/ConnectContext";
 import { companyName, companyTagline } from "../constants";
+import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 
 const Hero = () => {
+  const navigate = useNavigate();
   useGSAP(() => {
     gsap.from(".yt-embed", {
       ease: "power1.inOut",
@@ -41,6 +44,8 @@ const Hero = () => {
 
   const { showConnectModal, setShowConnectModal, handleButtonClick } =
     useContext(ModalContext);
+
+  const { setActiveSlide } = useContext(ConnectContext);
 
   const [videoClicked, setVideoClicked] = useState(false);
 
@@ -112,7 +117,10 @@ const Hero = () => {
 
   const handleConnect = () => {
     // window.location.href = "https://run.ply.io/run/7Kj5bxPd??";
-    window.open("https://run.ply.io/run/7Kj5bxPd??", "_blank");
+    // window.open("https://run.ply.io/run/7Kj5bxPd??", "_blank");
+    setActiveSlide(0);
+    localStorage.clear();
+    navigate("/connect");
   };
 
   return (
