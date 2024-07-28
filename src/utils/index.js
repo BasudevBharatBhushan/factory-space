@@ -1,9 +1,5 @@
-import airtelLogo from "../assets/Logo/airtel.png";
-import presidencyLogo from "../assets/Logo/presidency.png";
-import netflixLogo from "../assets/Logo/netflix.png";
-import cocacolaLogo from "../assets/Logo/coca-cola.png";
-import kiitLogo from "../assets/Logo/kiit.png";
 import wp from "../assets/Logo/wp.png";
+import fs from "../assets/Logo/fs.png";
 
 import ps1 from "../assets/ProblemStatement/PS1.jpg";
 import ps2 from "../assets/ProblemStatement/PS2.jpg";
@@ -25,12 +21,8 @@ import HeroVideo2 from "../assets/Videos/Hero2.mp4";
 // import HeroVideo2 from "../assets/Videos/Hero2.mp4";
 // import HeroVideo3 from "../assets/Videos/Hero3.mp4";
 
-export const airtel = airtelLogo;
-export const presidency = presidencyLogo;
-export const netflix = netflixLogo;
-export const cocacola = cocacolaLogo;
-export const kiit = kiitLogo;
 export const wpLogo = wp;
+export const fsLogo = fs;
 
 export const psOne = ps1;
 export const psTwo = ps2;

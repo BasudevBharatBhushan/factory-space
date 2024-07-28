@@ -125,7 +125,7 @@ const Hero = () => {
 
   return (
     <>
-      <section className="relative  w-full   h-[70vh] lg:h-[80vh] xl:h-[85vh] text-white font-Raleway flex justify-center items-start ">
+      <section className="relative  w-full  h-full text-white font-Raleway flex justify-center items-start ">
         <Header />
         <video
           className={` pointer-events-none w-full h-full object-cover absolute left-0 top-0 brightness-50 ${
@@ -140,7 +140,7 @@ const Hero = () => {
           <source src={heroVideo2} />
         </video>
         <div
-          className={`grid grid-cols-1 xl:grid-cols-2  items-end justify-items-center xl:justify-items-start justify-center content-center lg:content-center xl:content-around  w-[80vw] h-full px-1 xl:px-[5vw] pb-[10vh] my-3 xl:my-[10vh] z-10 ${
+          className={`   grid grid-cols-1 xl:grid-cols-2  items-end justify-items-center xl:justify-items-start justify-center content-center lg:content-center xl:content-around  w-[80vw] h-full px-1 xl:px-[5vw] pb-[10vh] my-3 xl:my-[10vh] z-10 ${
             videoClicked ? "blur-lg" : ""
           }`}
         >
@@ -148,9 +148,14 @@ const Hero = () => {
           <div className=" my-auto lg:my-16 xl:my-auto">
             <div className=" flex flex-col justify-center xl:justify-evenly items-center xl:items-start  xl:my-2">
               <div className="company-info font-semibold text-4xl lg:text-7xl xl:text-6xl my-4 text-center xl:text-left">
-                <p className="hero-anim">{companyName}</p>
+                <p className="hero-anim">Factory Space AI</p>
                 <p className="hero-anim text-base lg:text-xl xl:text-xl  font-normal  my-4 text-center xl:text-left">
-                  {companyTagline}
+                  Transform your manufacturing business with Elastic
+                  Manufacturing
+                  <span className=" hidden lg:inline">
+                    , empowering startups, enterprises, and industry leaders
+                    alike
+                  </span>
                 </p>
               </div>
             </div>
@@ -181,14 +186,14 @@ const Hero = () => {
 
           {/* div 3 */}
           <div className=" w-full xl:w-auto my-10  z-10">
-            <div className="  action-btns transition duration-500  hover:scale-105 font-roboto">
+            <div className="  action-btns transition duration-500  hover:scale-105 font-Roboto">
               <a
                 href="#"
                 className=" hero-anim w-full xl:w-auto text-center xl:text-left  inline-flex items-center px-6 py-4 bg-white hover:bg-transparent border border-white text-black hover:text-white font-semibold rounded-full  transition-colors  duration-300 "
                 // onClick={handleButtonClick}
                 onClick={handleConnect}
               >
-                <p className=" w-full xl:w-auto">
+                <p className=" w-full xl:w-auto ">
                   Join the Waitlist
                   <span className="ml-2 ">→</span>
                 </p>

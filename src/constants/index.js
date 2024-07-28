@@ -1,4 +1,3 @@
-import { airtel, presidency, netflix, cocacola, kiit } from "../utils";
 import {
   psOne,
   psTwo,
@@ -14,34 +13,7 @@ export const navLists = ["Home", "Connect"];
 
 export const companyName = "Factory Space AI";
 export const companyTagline =
-  "Revolutionizing the Future of Manufacturing with Innovation and Technology";
-
-export const clients = [
-  {
-    name: "Airtel",
-    logo: airtel,
-  },
-  {
-    name: "Presidency",
-    logo: presidency,
-  },
-  {
-    name: "Netflix",
-    logo: netflix,
-  },
-  {
-    name: "Coca Cola",
-    logo: cocacola,
-  },
-  {
-    name: "KIIT",
-    logo: kiit,
-  },
-  {
-    name: "KIIT",
-    logo: null,
-  },
-];
+  "Transform Your Manufacturing Business with Elastic Manufacturing";
 
 export const problemStatements = [
   {
