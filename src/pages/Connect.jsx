@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import Slide from "../components/Slide/Slide";
 import { ManufacturerSlides, TraderSlides } from "../constants";
 import { ConnectContext } from "../context/ConnectContext";
+import { isAdmin } from "../helper";
 
 const Connect = () => {
   const { activeSlide, setActiveSlide, userType, setUserType } =

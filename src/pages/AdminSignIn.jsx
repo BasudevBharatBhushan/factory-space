@@ -1,9 +1,25 @@
-import React from "react";
-import { adminLogin } from "../helper";
+import React, { useEffect } from "react";
+import { adminLogin, isAdmin } from "../helper";
 import { useNavigate } from "react-router-dom";
 
 const AdminSignIn = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkAdminStatus = async () => {
+      try {
+        const adminStatus = await isAdmin();
+        if (adminStatus) {
+          navigate("/admin-dashboard");
+        }
+      } catch (error) {
+        console.error("An error occurred while checking admin status:", error);
+      }
+    };
+
+    checkAdminStatus();
+  }, [navigate]);
+
   const handleSignin = async (e) => {
     e.preventDefault();
     const userId = e.target["user-id"].value;
