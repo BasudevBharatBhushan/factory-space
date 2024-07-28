@@ -1,4 +1,4 @@
-import { firebaseCreds } from "../constants";
+import { firebaseCreds, adminCred } from "../constants";
 import { SignJWT, jwtVerify } from "jose";
 
 // Destructure firebase creds
@@ -241,4 +241,52 @@ const formatResponse = (data) => {
     .filter((item) => item !== null);
 };
 
-export { refreshIDToken, postData, patchData, getData };
+const adminLogin = async (loginInfo) => {
+  try {
+    const { userId, password } = loginInfo;
+
+    if (userId === adminCred.userId && password === adminCred.password) {
+      //Create a JWT token
+      const token = await new SignJWT({ userId: userId })
+        .setProtectedHeader({ alg: "HS256" })
+        .sign(jwtSecret);
+
+      localStorage.setItem("adminToken", token);
+
+      console.log("Logged in as admin");
+
+      return true;
+    } else {
+      localStorage.removeItem("adminToken");
+      return false;
+    }
+  } catch (error) {
+    console.error("Failed to login:", error);
+    return false;
+  }
+};
+
+const isAdmin = async () => {
+  const token = localStorage.getItem("adminToken");
+  if (!token) {
+    return false;
+  }
+
+  try {
+    // Verify Token
+    const { payload } = await jwtVerify(token, jwtSecret);
+
+    if (payload.userId === adminCred.userId) {
+      return true;
+    } else {
+      localStorage.removeItem("adminToken");
+      return false;
+    }
+  } catch (error) {
+    localStorage.removeItem("adminToken");
+    console.error("Token verification failed:", error);
+    return false;
+  }
+};
+
+export { refreshIDToken, postData, patchData, getData, isAdmin, adminLogin };

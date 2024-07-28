@@ -349,3 +349,5 @@ export const firebaseCreds = {
     "AMf-vBxeSoGMwZ0vWErJ92yFVdnluwzwqDgKrCdpimXeSxELZBu6E3tTtxevJRII56ydGGayqxdexitfWjlegruS791NWjgMZ631OZTsV67toQPyp3Cem3gpAydjmSSWdns3fMY6EvejSPvGtY6MhAKcoPJwLHwHT4hZlQaxmLZvG0QmARVaVlES0mpwzaH7Ozk2zGTjU-8X4wmu5LO70GCwGHsbumGtpU3ctIZU9u9APLKIzG0YxMY",
   JWT_SECRET: "dsafldsjoaidfuoisdf",
 };
+
+export const adminCred = { userId: "rfs", password: "rfsai" };

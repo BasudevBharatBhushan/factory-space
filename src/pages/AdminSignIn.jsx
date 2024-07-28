@@ -1,6 +1,30 @@
 import React from "react";
+import { adminLogin } from "../helper";
+import { useNavigate } from "react-router-dom";
 
 const AdminSignIn = () => {
+  const navigate = useNavigate();
+  const handleSignin = async (e) => {
+    e.preventDefault();
+    const userId = e.target["user-id"].value;
+    const password = e.target["password"].value;
+
+    const loginInfo = { userId, password };
+
+    console.log(loginInfo);
+
+    try {
+      const isLoggedIn = await adminLogin(loginInfo);
+      if (isLoggedIn) {
+        navigate("/admin-dashboard");
+      } else {
+        console.error("Login failed");
+      }
+    } catch (error) {
+      console.error("An error occurred during login:", error);
+    }
+  };
+
   return (
     <div className="w-full min-h-screen bg-gray-100 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
@@ -12,7 +36,10 @@ const AdminSignIn = () => {
             Admin Dashboard
           </h3>
         </div>
-        <form className="mt-8 space-y-6 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <form
+          onSubmit={handleSignin}
+          className="mt-8 space-y-6 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        >
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
               <label htmlFor="user-id" className="sr-only">

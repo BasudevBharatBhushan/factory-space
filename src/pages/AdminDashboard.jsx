@@ -1,10 +1,10 @@
 import { useMemo, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   MaterialReactTable,
   useMaterialReactTable,
 } from "material-react-table";
 import { getData } from "../helper";
-import { div } from "three/examples/jsm/nodes/Nodes.js";
 
 const AdminDashboard = () => {
   const [viewType, setViewType] = useState("Manufacturer");
@@ -104,6 +104,8 @@ const AdminDashboard = () => {
     data,
   });
 
+  const navigate = useNavigate();
+
   return (
     <>
       {isLoading && (
@@ -117,10 +119,10 @@ const AdminDashboard = () => {
         }`}
       >
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-sm lg:text-2xl font-bold font-Raleway">
-            FACTORY SPACE AI
-          </h1>
-          <div>
+          <div className="">
+            <h1 className="text-sm lg:text-2xl font-bold font-Raleway">
+              FACTORY SPACE AI
+            </h1>
             <button
               className={`px-4 py-2 mr-2 rounded-md ${
                 viewType === "Manufacturer"
@@ -146,7 +148,20 @@ const AdminDashboard = () => {
               Trader
             </button>
           </div>
+          <div>
+            <button
+              className=" text-red-300 font-extralight"
+              onClick={() => {
+                localStorage.removeItem("adminToken");
+                // window.location.reload();
+                navigate("/admin");
+              }}
+            >
+              Logout
+            </button>
+          </div>
         </div>
+
         <div className="flex-grow">
           <MaterialReactTable table={table} />
         </div>
