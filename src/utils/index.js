@@ -13,6 +13,7 @@ import ps7 from "../assets/ProblemStatement/PS7.jpg";
 import factorybg from "../assets/Background/factory-bg.jpg";
 import pattern from "../assets/Background/pattern.jpg";
 import gear from "../assets/Background/gear.png";
+import workspace from "../assets/Background/workspace.jpg";
 
 import thumbnail1 from "../assets/Thumbnail/Thumbnail1.jpg";
 
@@ -43,3 +44,4 @@ export const Pattern = pattern;
 export const Thumbnail1 = thumbnail1;
 
 export const Gear = gear;
+export const Workspace = workspace;
