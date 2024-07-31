@@ -39,6 +39,11 @@ const SlideFooterButton = ({ isLastSlide, slideNo }) => {
             slideNo === 4 ? "w-4" : "w-2"
           } `}
         ></div>
+        <div
+          className={` h-2 mx-2 bg-gray-500 rounded-full ${
+            slideNo === 5 ? "w-4" : "w-2"
+          } `}
+        ></div>
       </div>
       {!isLastSlide ? (
         <button

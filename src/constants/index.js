@@ -16,7 +16,7 @@ import {
   faLinkedinIn,
 } from "@fortawesome/free-brands-svg-icons";
 import { faT } from "@fortawesome/free-solid-svg-icons";
-
+import { Trader, Manufacturer } from "../utils";
 export const navLists = ["Home", "Connect"];
 
 export const companyName = "Factory Space AI";
@@ -26,15 +26,15 @@ export const companyTagline =
 export const socialLinks = [
   {
     icon: faLinkedinIn,
-    link: "linkedin.com/company/FactorySpace",
+    link: "https://linkedin.com/company/FactorySpace",
   },
   {
     icon: faXTwitter,
-    link: "x.com/FactorySpace",
+    link: "https://x.com/FactorySpace",
   },
   {
     icon: faFacebook,
-    link: "facebook.com/factoryspace",
+    link: "https://facebook.com/factoryspace",
   },
 ];
 
@@ -140,10 +140,16 @@ export const ManufacturerSlides = [
         id: 1,
         question: "Which of these best describe you?",
         description: "Help us tailor the setup for your business.",
-        type: "mcq",
+        type: "designation",
         options: ["Manufacturer", "Trader"],
         fieldName: "designation",
+        image: Manufacturer,
       },
+    ],
+  },
+  {
+    SlideNo: 2,
+    Questioner: [
       {
         id: 2,
         question: "What is your company's name?",
@@ -168,7 +174,7 @@ export const ManufacturerSlides = [
     ],
   },
   {
-    SlideNo: 2,
+    SlideNo: 3,
     Questioner: [
       {
         id: 5,
@@ -193,7 +199,7 @@ export const ManufacturerSlides = [
     ],
   },
   {
-    SlideNo: 3,
+    SlideNo: 4,
     Questioner: [
       {
         id: 7,
@@ -219,7 +225,7 @@ export const ManufacturerSlides = [
     ],
   },
   {
-    SlideNo: 4,
+    SlideNo: 5,
     Questioner: [
       {
         id: 9,
@@ -240,10 +246,16 @@ export const TraderSlides = [
         id: 1,
         question: "Which of these best describe you?",
         description: "Help us tailor the setup for your business.",
-        type: "mcq",
+        type: "designation",
         options: ["Manufacturer", "Trader"],
         fieldName: "designation",
+        image: Trader,
       },
+    ],
+  },
+  {
+    SlideNo: 2,
+    Questioner: [
       {
         id: 2,
         question: "What is your company's name?",
@@ -268,7 +280,7 @@ export const TraderSlides = [
     ],
   },
   {
-    SlideNo: 2,
+    SlideNo: 3,
     Questioner: [
       {
         id: 5,
@@ -295,7 +307,7 @@ export const TraderSlides = [
     ],
   },
   {
-    SlideNo: 3,
+    SlideNo: 4,
     Questioner: [
       {
         id: 8,
@@ -322,7 +334,7 @@ export const TraderSlides = [
     ],
   },
   {
-    SlideNo: 4,
+    SlideNo: 5,
     Questioner: [
       {
         id: 10,

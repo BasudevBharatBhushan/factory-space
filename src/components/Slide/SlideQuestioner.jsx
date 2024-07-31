@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { ConnectContext } from "../../context/ConnectContext";
+import { Trader, Manufacturer } from "../../utils";
 
 const SlideQuestioner = ({ slideQuestions }) => {
   const {
@@ -23,6 +24,59 @@ const SlideQuestioner = ({ slideQuestions }) => {
             <p className="text-xs font-extralight text-gray-400">
               {obj.description}
             </p>
+            {obj.type === "designation" && (
+              <div className="slide-question-choices p-3 grid grid-cols-1 lg:grid-cols-2 justify-items-stretch gap-5 mb-2">
+                {obj.options.map((option, index) => {
+                  const isSelected = questionsResponse.find(
+                    (question) => question.response === option
+                  );
+                  return (
+                    <div
+                      className={`choice-container min-h-14 h-auto px-5 border ${
+                        isSelected
+                          ? " border-gray-500 border-2 bg-gray-100 "
+                          : ""
+                      } hover:border-gray-400 hover:bg-gray-50 rounded-md flex flex-col justify-start items-center cursor-pointer`}
+                      key={index}
+                      onClick={() =>
+                        updateQuestionsResponse({
+                          id: obj.id,
+                          response: option,
+                          fieldName: obj.fieldName,
+                        })
+                      }
+                    >
+                      <div className="w-[20vw] py-5">
+                        {option === "Trader" ? (
+                          <img src={Trader} alt="" />
+                        ) : (
+                          <img src={Manufacturer} alt="" />
+                        )}
+                      </div>
+
+                      {/* <div
+                        className={`choice-box rounded-full w-4 h-4 mr-2 lg:w-5 lg:h-5 lg:mr-5 border  ${
+                          isSelected
+                            ? "border-4 border-gray-600"
+                            : "border-gray-500"
+                        }`}
+                      /> */}
+                      <div className="choice-option">
+                        <p
+                          className={`  ${
+                            isSelected
+                              ? "text-gray-800 font-bold"
+                              : "text-gray-600 font-semibold"
+                          } text-sm lg:text-lg   `}
+                        >
+                          {option}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
             {obj.type === "mcq" && (
               <div className="slide-question-choices p-3 grid grid-cols-1 lg:grid-cols-2 justify-items-stretch gap-5 mb-2">
                 {obj.options.map((option, index) => {
