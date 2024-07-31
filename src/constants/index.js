@@ -8,12 +8,35 @@ import {
   psFive,
   psSeven,
 } from "../utils";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faInstagram,
+  faXTwitter,
+  faFacebook,
+  faLinkedinIn,
+} from "@fortawesome/free-brands-svg-icons";
+import { faT } from "@fortawesome/free-solid-svg-icons";
 
 export const navLists = ["Home", "Connect"];
 
 export const companyName = "Factory Space AI";
 export const companyTagline =
   "Transform Your Manufacturing Business with Elastic Manufacturing";
+
+export const socialLinks = [
+  {
+    icon: faLinkedinIn,
+    link: "linkedin.com/company/FactorySpace",
+  },
+  {
+    icon: faXTwitter,
+    link: "x.com/FactorySpace",
+  },
+  {
+    icon: faFacebook,
+    link: "facebook.com/factoryspace",
+  },
+];
 
 export const problemStatements = [
   {

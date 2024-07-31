@@ -1,14 +1,39 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCloud,
   faHeadset,
   faShield,
 } from "@fortawesome/free-solid-svg-icons";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const CallToActionSection = () => {
+  const Navigate = useNavigate();
+  useGSAP(() => {
+    gsap.from(".trust-badge", {
+      ease: "slow(0.7,0.7,false)",
+      delay: 3,
+      scale: 0.5,
+      opacity: 0,
+      stagger: 0.2,
+      duration: 3,
+      scrollTrigger: {
+        trigger: ".call-to-action",
+        start: "top 80%",
+        end: "top 20%",
+        scrub: 2,
+        invalidateOnRefresh: true,
+      },
+    });
+  }, []);
+
   return (
-    <div className="bg-gray-900 text-white py-16 px-[10vw] font-Roboto">
+    <div className="bg-gray-900 text-white py-16 px-[10vw] font-Roboto call-to-action">
       <h2 className="text-3xl font-bold text-center mb-8">
         Join the Revolution: Sign Up for Our Waiting List
       </h2>
@@ -18,7 +43,12 @@ const CallToActionSection = () => {
       </p>
 
       <div className="flex justify-center mb-12">
-        <button className="bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-full text-lg hover:bg-yellow-500 transition duration-300">
+        <button
+          className="bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-full text-lg hover:bg-gradient-to-r hover:from-yellow-400 hover:to-yellow-600  hover:scale-110 transition duration-300"
+          onClick={() => {
+            Navigate("/connect");
+          }}
+        >
           Sign Up Now
         </button>
       </div>
@@ -33,7 +63,7 @@ const CallToActionSection = () => {
 };
 
 const TrustBadge = ({ icon, text }) => (
-  <div className="flex flex-col items-center w-52">
+  <div className="trust-badge flex flex-col items-center w-52">
     <div className="bg-yellow-400 rounded-full p-4 mb-4">
       <FontAwesomeIcon icon={icon} className="text-gray-900 text-3xl" />
     </div>

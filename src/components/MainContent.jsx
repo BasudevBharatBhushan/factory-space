@@ -2,6 +2,7 @@ import React from "react";
 import { fsLogo, Gear, Workspace } from "../utils";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faDollarSign,
@@ -16,21 +17,55 @@ gsap.registerPlugin(ScrollTrigger);
 
 const MainContent = () => {
   useGSAP(() => {
-    gsap.from(".anim", {
-      ease: "power1.inOut",
-      y: 60,
+    gsap.from(".anim-1", {
+      ease: "slow(0.7,0.7,false)",
+      y: 80,
+      x: 80,
       delay: 3,
       opacity: 0,
-      stagger: 0.2,
+      stagger: 0.1,
+      duration: 3,
       scrollTrigger: {
-        trigger: ".anim",
+        trigger: ".anim-1",
         start: "top 80%",
         end: "top 20%",
         scrub: 1,
         invalidateOnRefresh: true,
       },
     });
+
+    gsap.from(".anim-2", {
+      ease: "slow(0.7,0.7,false)",
+      delay: 5,
+      y: 100,
+      opacity: 0,
+      stagger: 0.1,
+      duration: 3,
+      scrollTrigger: {
+        trigger: ".anim-2",
+        start: "top 80%",
+        end: "top 20%",
+        scrub: 1,
+        invalidateOnRefresh: true,
+      },
+    });
+
+    gsap.from(".benefit-card", {
+      ease: "power2.out",
+      y: 50,
+      opacity: 0,
+      stagger: 0.5,
+      duration: 3,
+      scrollTrigger: {
+        trigger: ".benefit-card",
+        start: "top 90%",
+        end: "top 50%",
+        scrub: 1,
+        invalidateOnRefresh: true,
+      },
+    });
   }, []);
+
   return (
     <>
       <div className="w-full h-auto bg-gray-200 px-5 relative">
@@ -41,10 +76,10 @@ const MainContent = () => {
         />
         <div className="w-full h-full flex flex-col justify-evenly items-start py-10">
           <div className="pb-[15vh] xl:pb-[20vh] pt-[5vh] px-[10vw]">
-            <h1 className="anim text-4xl lg:text-4xl font-bold text-gray-800 mb-6 ">
+            <h1 className="anim-1 text-4xl lg:text-4xl font-bold text-gray-800 mb-6 ">
               Revolutionize Your Manufacturing with Factory Space
             </h1>
-            <div className="anim grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+            <div className="anim-1 grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
               <FeatureCard
                 icon={faIndustry}
                 title="Cloud-Based Platform"
@@ -61,7 +96,7 @@ const MainContent = () => {
                 description="Grow without equipment or space limitations"
               />
             </div>
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="anim-2 text-xl text-gray-600 leading-relaxed">
               Factory Space empowers you to transform your manufacturing
               process. Our innovative platform bridges the gap between your
               vision and production capabilities, enabling you to scale
@@ -103,7 +138,7 @@ const MainContent = () => {
 };
 
 const BenefitCard = ({ icon, title, description }) => (
-  <div className="bg-gray-800 text-white p-6 rounded-lg">
+  <div className="benefit-card bg-gray-800 text-white p-6 rounded-lg">
     <FontAwesomeIcon icon={icon} className="text-3xl text-yellow-400 mb-4" />
     <div>
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
