@@ -16,18 +16,18 @@ import {
 const MainContent = () => {
   return (
     <>
-      <div className="w-full h-auto bg-gray-200 p-5 relative">
+      <div className="w-full h-auto bg-gray-200 px-5 relative">
         <img
-          className={`gear-icon w-[100vw] h-[100vh] object-cover opacity-10 left-[0] top-[0] absolute`}
+          className={`workspace-image w-full h-full object-cover opacity-20 left-[0] top-[0] absolute inset-0`}
           src={Workspace}
           alt=""
         />
         <div className="w-full h-full flex flex-col justify-evenly items-start py-10">
-          <div className="pb-[20vh] pt-[5vh] px-[10vw]">
-            <h1 className="text-4xl font-bold text-gray-800 mb-6">
+          <div className="pb-[15vh] xl:pb-[20vh] pt-[5vh] px-[10vw]">
+            <h1 className="text-4xl lg:text-4xl font-bold text-gray-800 mb-6 ">
               Revolutionize Your Manufacturing with Factory Space
             </h1>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
               <FeatureCard
                 icon={faIndustry}
                 title="Cloud-Based Platform"
@@ -56,7 +56,7 @@ const MainContent = () => {
             <h2 className="text-3xl font-bold text-gray-700 mb-8">
               Why Choose Factory Space?
             </h2>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <BenefitCard
                 icon={faDollarSign}
                 title="Reduce Capital Expenditures"
