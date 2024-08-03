@@ -16,10 +16,10 @@ import {
   faLinkedinIn,
 } from "@fortawesome/free-brands-svg-icons";
 import { faT } from "@fortawesome/free-solid-svg-icons";
-import { Trader, Manufacturer } from "../utils";
+import { Trader, Manufacturer, Operator } from "../utils";
 export const navLists = ["Home", "Connect"];
 
-export const companyName = "Factory Space AI";
+export const companyName = "factoryspace.ai";
 export const companyTagline =
   "Transform Your Manufacturing Business with Elastic Manufacturing";
 
@@ -141,7 +141,7 @@ export const ManufacturerSlides = [
         question: "Which of these best describe you?",
         description: "Help us tailor the setup for your business.",
         type: "designation",
-        options: ["Manufacturer", "Trader"],
+        options: ["Manufacturer", "Trader", "Operator"],
         fieldName: "designation",
         image: Manufacturer,
       },
@@ -247,7 +247,7 @@ export const TraderSlides = [
         question: "Which of these best describe you?",
         description: "Help us tailor the setup for your business.",
         type: "designation",
-        options: ["Manufacturer", "Trader"],
+        options: ["Manufacturer", "Trader", "Operator"],
         fieldName: "designation",
         image: Trader,
       },
@@ -347,6 +347,107 @@ export const TraderSlides = [
   },
 ];
 
+export const OperatorSlides = [
+  {
+    SlideNo: 1,
+    Questioner: [
+      {
+        id: 1,
+        question: "Which of these best describes you?",
+        description: "Help us tailor the setup for your profile.",
+        type: "designation",
+        options: ["Manufacturer", "Trader", "Operator"],
+        fieldName: "designation",
+        image: Operator,
+      },
+    ],
+  },
+  {
+    SlideNo: 2,
+    Questioner: [
+      {
+        id: 2,
+        question: "What is your full name?",
+        description: "Provide your legal name.",
+        type: "input",
+        fieldName: "fullName",
+      },
+      {
+        id: 3,
+        question: "What is your contact number?",
+        description: "Provide a valid phone number.",
+        type: "input",
+        fieldName: "contactNumber",
+      },
+      {
+        id: 4,
+        question: "What is your email address?",
+        description: "Provide a valid email address.",
+        type: "input",
+        fieldName: "email",
+      },
+    ],
+  },
+  {
+    SlideNo: 3,
+    Questioner: [
+      {
+        id: 5,
+        question: "What types of machines are you skilled in operating?",
+        description: "List the machinery you are experienced with.",
+        type: "input",
+        fieldName: "skilledMachines",
+      },
+      {
+        id: 6,
+        question: "What is your level of experience with these machines?",
+        description: "Indicate your expertise level.",
+        type: "mcq",
+        options: ["Beginner", "Intermediate", "Advanced"],
+        fieldName: "experienceLevel",
+      },
+      {
+        id: 7,
+        question: "How frequently are you available for work?",
+        description: "Your availability for operating machinery.",
+        type: "mcq",
+        options: ["Full-time", "Part-time", "On-demand"],
+        fieldName: "availability",
+      },
+    ],
+  },
+  {
+    SlideNo: 4,
+    Questioner: [
+      {
+        id: 8,
+        question: "What are your preferred working hours?",
+        description: "Specify your preferred shift times.",
+        type: "input",
+        fieldName: "preferredWorkingHours",
+      },
+      {
+        id: 9,
+        question: "What additional skills or certifications do you have?",
+        description: "List any extra qualifications you possess.",
+        type: "input",
+        fieldName: "additionalSkills",
+      },
+    ],
+  },
+  {
+    SlideNo: 5,
+    Questioner: [
+      {
+        id: 10,
+        question: "Any additional feedback or requirements?",
+        description: "Share any thoughts or specific needs.",
+        type: "feedback",
+        fieldName: "additionalFeedback",
+      },
+    ],
+  },
+];
 // Firebase Creds
 export const firebaseCreds = {
   API_KEY: "AIzaSyC5EUGSPjg0-1-MxzjV99em_-7VIdHLI4w",

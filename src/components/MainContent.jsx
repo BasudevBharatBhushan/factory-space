@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   fsLogo,
   Gear,
@@ -8,6 +8,8 @@ import {
   OperatorVectorImage,
   Trader,
 } from "../utils";
+import { useNavigate } from "react-router-dom";
+import { ConnectContext } from "../context/ConnectContext";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -24,6 +26,7 @@ import {
 gsap.registerPlugin(ScrollTrigger);
 
 const MainContent = () => {
+  const Navigate = useNavigate();
   useGSAP(() => {
     gsap.from(".anim-1", {
       ease: "slow(0.7,0.7,false)",
@@ -179,6 +182,16 @@ const MainContent = () => {
     // });
   }, []);
 
+  const { setActiveSlide, setUserType, handleNextSlide } =
+    useContext(ConnectContext);
+
+  const navigateConnectUser = (userType) => {
+    setUserType(userType);
+    setActiveSlide(0);
+    handleNextSlide();
+    Navigate("/connect");
+  };
+
   return (
     <>
       <div className="w-full h-auto bg-white px-5 relative">
@@ -257,7 +270,10 @@ const MainContent = () => {
                   </p>
                 </div>
                 <div>
-                  <button className="group bg-black text-white px-6 py-3 font-semibold rounded-lg hover:scale-105 hover:border hover:border-black hover:text-black hover:bg-white transition ease-in-out duration-300">
+                  <button
+                    className="group bg-black text-white px-6 py-3 font-semibold rounded-lg hover:scale-105 hover:border hover:border-black hover:text-black hover:bg-white transition ease-in-out duration-300"
+                    onClick={() => navigateConnectUser("Trader")}
+                  >
                     <span className="flex items-center">
                       Get started
                       <svg
@@ -294,7 +310,10 @@ const MainContent = () => {
                   </p>
                 </div>
                 <div>
-                  <button className="group bg-black text-white px-6 py-3 font-semibold rounded-lg hover:scale-105 hover:border hover:border-black hover:text-black hover:bg-white transition ease-in-out duration-300">
+                  <button
+                    className="group bg-black text-white px-6 py-3 font-semibold rounded-lg hover:scale-105 hover:border hover:border-black hover:text-black hover:bg-white transition ease-in-out duration-300"
+                    onClick={() => navigateConnectUser("Manufacturer")}
+                  >
                     <span className="flex items-center">
                       Get started
                       <svg
@@ -337,7 +356,10 @@ const MainContent = () => {
                   </p>
                 </div>
                 <div>
-                  <button className="group bg-black text-white px-6 py-3 font-semibold rounded-lg hover:scale-105 hover:border hover:border-black hover:text-black hover:bg-white transition ease-in-out duration-300">
+                  <button
+                    className="group bg-black text-white px-6 py-3 font-semibold rounded-lg hover:scale-105 hover:border hover:border-black hover:text-black hover:bg-white transition ease-in-out duration-300"
+                    onClick={() => navigateConnectUser("Operator")}
+                  >
                     <span className="flex items-center">
                       Get started
                       <svg

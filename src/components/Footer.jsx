@@ -55,7 +55,7 @@ const Footer = () => {
       <div className="xl:w-[80vw] mx-auto px-[2vw] py-12">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start space-y-8 md:space-y-0 md:space-x-8">
           <div className="flex flex-col items-center md:items-start space-y-4">
-            <h1 className="font-semibold text-3xl md:text-4xl text-white">
+            <h1 className="font-semibold text-3xl md:text-4xl text-white italic">
               {companyName}
             </h1>
             <div className="font-Roboto">

@@ -19,6 +19,7 @@ import thumbnail1 from "../assets/Thumbnail/Thumbnail1.jpg";
 
 import trader from "../assets/Elements/Trader.png";
 import manufacturer from "../assets/Elements/Manufacturer.png";
+import operator from "../assets/Elements/Operator.png";
 import ManufacturerVector from "../assets/Elements/manufacturer_vector.jpg";
 import TraderVector from "../assets/Elements/trader_vector.jpg";
 import OperatorVector from "../assets/Elements/operator_vector.jpg";
@@ -54,6 +55,7 @@ export const Workspace = workspace;
 
 export const Trader = trader;
 export const Manufacturer = manufacturer;
+export const Operator = operator;
 export const ManufacturerVectorImage = ManufacturerVector;
 export const TraderVectorImage = TraderVector;
 export const OperatorVectorImage = OperatorVector;

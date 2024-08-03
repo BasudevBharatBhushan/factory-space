@@ -98,7 +98,7 @@ const Hero = () => {
   const YoutubeEmbed = () => (
     <div
       ref={modalRef}
-      className="yt-embed w-[85vw] xl:w-[38vw] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-3xl z-10 "
+      className="yt-embed w-[85vw] xl:w-[50vw] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-3xl z-10 "
     >
       <iframe
         // width= 100%,

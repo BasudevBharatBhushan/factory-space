@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { ConnectContext } from "../../context/ConnectContext";
-import { Trader, Manufacturer } from "../../utils";
+import { Trader, Manufacturer, Operator } from "../../utils";
 
 const SlideQuestioner = ({ slideQuestions }) => {
   const {
@@ -20,23 +20,21 @@ const SlideQuestioner = ({ slideQuestions }) => {
         }
         return (
           <div className="slide-questioner mb-1 w-full " key={index}>
-            <p className=" text-lg text-gray-600 font-bold">{obj.question}</p>
-            <p className="text-xs font-extralight text-gray-400">
-              {obj.description}
-            </p>
+            <p className=" text-lg text-gray-800 font-bold">{obj.question}</p>
+            <p className="text-xs font-thin text-gray-500">{obj.description}</p>
             {obj.type === "designation" && (
-              <div className="slide-question-choices p-3 grid grid-cols-1 lg:grid-cols-2 justify-items-stretch gap-5 mb-2">
+              <div className="slide-question-choices p-3 grid grid-cols-1 md:grid-cols-3 gap-4 mb-2">
                 {obj.options.map((option, index) => {
                   const isSelected = questionsResponse.find(
                     (question) => question.response === option
                   );
                   return (
                     <div
-                      className={`choice-container min-h-14 h-auto px-5 border ${
+                      className={`choice-container h-full px-4 py-3 border ${
                         isSelected
-                          ? " border-gray-500 border-2 bg-gray-100 "
-                          : ""
-                      } hover:border-gray-400 hover:bg-gray-50 rounded-md flex flex-col justify-start items-center cursor-pointer`}
+                          ? "border-blue-500 border-2 bg-blue-50"
+                          : "border-gray-300"
+                      } hover:border-blue-400 hover:bg-blue-50 rounded-lg flex flex-col justify-between items-center cursor-pointer transition-all duration-300 ease-in-out`}
                       key={index}
                       onClick={() =>
                         updateQuestionsResponse({
@@ -46,28 +44,35 @@ const SlideQuestioner = ({ slideQuestions }) => {
                         })
                       }
                     >
-                      <div className="w-[20vw] py-5">
+                      <div className="w-16 h-16 my-2">
                         {option === "Trader" ? (
-                          <img src={Trader} alt="" />
+                          <img
+                            src={Trader}
+                            alt="Trader"
+                            className="w-full h-full object-contain"
+                          />
+                        ) : option === "Operator" ? (
+                          <img
+                            src={Operator}
+                            alt="Operator"
+                            className="w-full h-full object-contain"
+                          />
                         ) : (
-                          <img src={Manufacturer} alt="" />
+                          <img
+                            src={Manufacturer}
+                            alt="Manufacturer"
+                            className="w-full h-full object-contain"
+                          />
                         )}
                       </div>
 
-                      {/* <div
-                        className={`choice-box rounded-full w-4 h-4 mr-2 lg:w-5 lg:h-5 lg:mr-5 border  ${
-                          isSelected
-                            ? "border-4 border-gray-600"
-                            : "border-gray-500"
-                        }`}
-                      /> */}
-                      <div className="choice-option">
+                      <div className="choice-option mt-2">
                         <p
-                          className={`  ${
+                          className={`text-center ${
                             isSelected
                               ? "text-gray-800 font-bold"
-                              : "text-gray-600 font-semibold"
-                          } text-sm lg:text-lg   `}
+                              : "text-gray-700 font-semibold"
+                          } text-sm md:text-base`}
                         >
                           {option}
                         </p>
