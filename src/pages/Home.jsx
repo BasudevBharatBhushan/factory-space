@@ -7,7 +7,7 @@ import CallToActionSection from "../components/CallToActionSection";
 const Home = () => {
   return (
     <div>
-      <div className=" h-[100vh]   relative">
+      <div className=" h-[100vh]   relative scroll-smooth">
         <Hero />
         <MainContent />
         <CallToActionSection />

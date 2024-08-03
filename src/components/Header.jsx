@@ -25,19 +25,19 @@ const Header = () => {
   return (
     <header
       className={` py-3 px-5 sm:px-[5vw] text-gray-400 font-Raleway fixed z-50 transition-all duration-300   ${
-        isScrolled ? "bg-gray-200 w-full" : "w-full xl:w-[80vw]"
+        isScrolled ? "bg-black w-full" : "w-full xl:w-[80vw]"
       }`}
     >
       <nav className="flex w-full justify-between">
         <div>
-          <h1 className="font-normal font-Raleway text-gray-400 text-lg sm:text-2xl">
-            Factory Space AI
+          <h1 className="font-bold font-Raleway text-white text-lg sm:text-2xl italic">
+            factoryspace.ai
           </h1>
         </div>
         <div className="flex justify-center items-center max-sm:hidden">
           {navLists.map((nav) => (
             <div
-              className="px-5 text-sm cursor-pointer text-gray hover:text-white transition-all "
+              className="px-5 text-sm cursor-pointer text-white font-medium hover:underline transition duration-500"
               key={nav}
               onClick={() => {
                 if (nav === "Connect") {

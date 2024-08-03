@@ -147,9 +147,16 @@ const Hero = () => {
           {/* div 1 */}
           <div className=" my-auto lg:my-16 xl:my-auto">
             <div className=" flex flex-col justify-center xl:justify-evenly items-center xl:items-start  xl:my-2">
-              <div className="company-info font-semibold text-4xl lg:text-7xl xl:text-6xl my-4 text-center xl:text-left">
-                <p className="hero-anim">Factory Space AI</p>
-                <p className="hero-anim text-base lg:text-xl xl:text-xl  font-normal  my-4 text-center xl:text-left">
+              <div className="company-info  my-4 text-center xl:text-left">
+                <p className="hero-anim font-semibold text-4xl lg:text-7xl xl:text-6xl hidden xl:block">
+                  Manufacturing <br /> Made
+                  <br /> Accessible
+                </p>
+                <p className="hero-anim font-semibold text-4xl lg:text-7xl xl:text-6xl block xl:hidden">
+                  Manufacturing Made Accessible
+                </p>
+
+                <p className="hero-anim text-base lg:text-xl xl:text-xl  font-normal  my-4 text-center xl:text-left ">
                   Transform your manufacturing business with Elastic
                   Manufacturing
                   <span className=" hidden lg:inline">
